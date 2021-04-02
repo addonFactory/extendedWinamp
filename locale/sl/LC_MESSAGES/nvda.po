@@ -1,0 +1,172 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: 'extendedWinampAppModule' '1.0'\n"
+"Report-Msgid-Bugs-To: nvda-translations@freelists.org\n"
+"POT-Creation-Date: 2013-01-08 17:22+0100\n"
+"PO-Revision-Date: 2013-01-14 07:21+0100\n"
+"Last-Translator: Jožef Gregorc <jozko.gregorc[@]guest.arnes.si\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.5.4\n"
+
+#: addon/appModules/winamp.py:60
+#, python-format
+msgid "%d hour, "
+msgstr "%d ure,"
+
+#: addon/appModules/winamp.py:62
+#, python-format
+msgid "%d hours, "
+msgstr "%d ur,"
+
+#: addon/appModules/winamp.py:64
+#, python-format
+msgid "%d minute, "
+msgstr "%d minute,"
+
+#: addon/appModules/winamp.py:66
+#, python-format
+msgid "%d minutes, "
+msgstr "%d minut,"
+
+#: addon/appModules/winamp.py:68
+#, python-format
+msgid "%s second"
+msgstr "%s sekunde"
+
+#: addon/appModules/winamp.py:70
+#, python-format
+msgid "%s seconds"
+msgstr "%s sekund"
+
+#: addon/appModules/winamp.py:127 addon/appModules/winamp.py:137
+msgid "on"
+msgstr "vključeno"
+
+#: addon/appModules/winamp.py:129 addon/appModules/winamp.py:139
+msgid "off"
+msgstr "izključeno"
+
+#: addon/appModules/winamp.py:144
+msgid "mute"
+msgstr "nemo"
+
+#: addon/appModules/winamp.py:145
+msgid "Mute playback"
+msgstr "Vduši predvajanje"
+
+#: addon/appModules/winamp.py:150
+msgid "Set playback volume to 25%"
+msgstr "Nastavi glasnost predvajanja na 25%"
+
+#: addon/appModules/winamp.py:155
+msgid "Set playback volume to 50%"
+msgstr "Nastavi glasnost predvajanja na 50%"
+
+#: addon/appModules/winamp.py:160
+msgid "Set playback volume to 100%"
+msgstr "Nastavi glasnost predvajanja na 100%"
+
+#: addon/appModules/winamp.py:164
+msgid "Pan left"
+msgstr "Pomakni v levo"
+
+#: addon/appModules/winamp.py:168
+msgid "Pan right"
+msgstr "Pomakni v desno"
+
+#: addon/appModules/winamp.py:172
+msgid "center"
+msgstr "sredina"
+
+#: addon/appModules/winamp.py:173
+msgid "Pan center"
+msgstr "Pomakni v sredino"
+
+#: addon/appModules/winamp.py:178 addon/appModules/winamp.py:185
+#: addon/appModules/winamp.py:192
+msgid "No time information."
+msgstr "Brez podatka o času"
+
+#: addon/appModules/winamp.py:180
+msgid "Speaks total track length"
+msgstr "Izgovori celotno dolžino skladbe"
+
+#: addon/appModules/winamp.py:187
+msgid "Speaks track elapsed time"
+msgstr "Izgovori pretečeni čas predvajanja skladbe"
+
+#: addon/appModules/winamp.py:194
+msgid "Speaks track remaining time"
+msgstr "Izgovori preostali čas do konca skladbe"
+
+#: addon/appModules/winamp.py:200 addon/appModules/winamp.py:220
+#: addon/appModules/winamp.py:227
+msgid "not playing"
+msgstr "Ne predvajaj"
+
+#: addon/appModules/winamp.py:201
+msgid "Review the end of track (last 6 seconds by default)"
+msgstr "(Pre)poslušaj konec skladbe (zadnjih 6 sekund je privzeto)"
+
+#: addon/appModules/winamp.py:207 addon/appModules/winamp.py:234
+msgid "Seconds:"
+msgstr "Sekund:"
+
+#: addon/appModules/winamp.py:207
+msgid "Set review time"
+msgstr "Nastavi čas (pre)poslušanja"
+
+#: addon/appModules/winamp.py:211 addon/appModules/winamp.py:238
+msgid "Bad value entered! Please try again."
+msgstr "Vnesena je napačna vrednost! Prosimo, poskusite znova."
+
+#: addon/appModules/winamp.py:211 addon/appModules/winamp.py:238
+msgid "Error"
+msgstr "Napaka"
+
+#: addon/appModules/winamp.py:214
+msgid ""
+"Set the review time (in seconds) for use with Review End of Track command"
+msgstr ""
+"Nastavi časovni pregled (v sekundah) za uporabo ob ukazu Preglej zaključek "
+"skladbe"
+
+#: addon/appModules/winamp.py:221
+msgid "Alternate jump forward (6 seconds by default)"
+msgstr "Alternativni skok naprej(6 sekund je privzeto)"
+
+#: addon/appModules/winamp.py:228
+msgid "Alternate jump backward (6 seconds by default)"
+msgstr "Alternativni skok nazaj (6 sekund je privzeto)"
+
+#: addon/appModules/winamp.py:234
+msgid "Set alternate jump time"
+msgstr "Nastavi alternativni časovni skok"
+
+#: addon/appModules/winamp.py:242
+msgid "Set alternate jump time (in seconds)"
+msgstr "Nastavi alternativni časovni (pre)skok (v sekundah)"
+
+#. Add-on description
+#. TRANSLATORS: Summary for this add-on to be shown on installation and add-on informaiton.
+#: buildVars.py:13
+msgid "An extended appModule for Winamp music player"
+msgstr "Razširjen programski modul za glasbeni predvajalnik Winamp"
+
+#. Add-on description
+#. Translators: Long description to be shown for this add-on on installation and add-on information
+#: buildVars.py:16
+msgid ""
+"This extended appModule extends the original Winamp appModule found in NVDA "
+"with some extra functionality."
+msgstr ""
+"Ta razširjen programski modul razširi modul, ki je v NVDA z nekaj novimi "
+"dodatnimi funkcionalnostmi."
