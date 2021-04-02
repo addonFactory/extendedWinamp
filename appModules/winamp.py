@@ -265,7 +265,7 @@ class winampPlaylistEditor(winampMainWindow):
 		gesture.send()
 		if not isScriptWaiting():
 			api.processPendingEvents()
-			speech.speakObject(self,reason=controlTypes.REASON_FOCUS)
+			speech.speakObject(self,reason=controlTypes.OutputReason.FOCUS)
 
 	def event_nameChange(self):
 		return super(winampMainWindow,self).event_nameChange()
