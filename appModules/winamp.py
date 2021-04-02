@@ -42,7 +42,7 @@ IPC_PLAYLIST_GET_NEXT_SELECTED=3029
 IPC_PE_GETCURINDEX=100
 IPC_PE_GETINDEXTOTAL=101
 # in_process ONLY
-IPC_PE_GETINDEXTITLE=200 #  lParam = pointer to fileinfo2 structure
+IPC_PE_GETINDEXTITLE=201 #  lParam = pointer to fileinfo2W structure
 
 #Default values for review and alternate jump times
 reviewTime=6
@@ -70,11 +70,11 @@ def sec2str(seconds, precision=0):
 		string+=_("%s seconds")%sec_string
 	return string
 
-class fileinfo2(Structure):
+class fileinfo2W(Structure):
 	_fields_=[
 		('fileindex',c_int),
-		('filetitle',c_char*256),
-		('filelength',c_char*16),
+		('filetitle',c_wchar*256),
+		('filelength',c_wchar*16),
 	]
 
 class AppModule(appModuleHandler.AppModule):
@@ -112,7 +112,7 @@ class AppModule(appModuleHandler.AppModule):
 
 	def __init__(self, *args, **kwargs):
 		super(AppModule, self).__init__(*args, **kwargs)
-		self.hwndWinamp=windll.user32.FindWindowA("Winamp v1.x",None)
+		self.hwndWinamp=windll.user32.FindWindowW("Winamp v1.x",None)
 
 class winampMainWindow(IAccessible):
 
@@ -249,14 +249,14 @@ class winampPlaylistEditor(winampMainWindow):
 		curIndex=winUser.sendMessage(self.appModule.hwndWinamp,WM_WA_IPC,-1,IPC_PLAYLIST_GET_NEXT_SELECTED)
 		if curIndex <0:
 			return None
-		info=fileinfo2()
+		info=fileinfo2W()
 		info.fileindex=curIndex
 		internalInfo=winKernel.virtualAllocEx(self.processHandle,None,sizeof(info),winKernel.MEM_COMMIT,winKernel.PAGE_READWRITE)
 		winKernel.writeProcessMemory(self.processHandle,internalInfo,byref(info),sizeof(info),None)
 		winUser.sendMessage(self.windowHandle,WM_WA_IPC,IPC_PE_GETINDEXTITLE,internalInfo)
 		winKernel.readProcessMemory(self.processHandle,internalInfo,byref(info),sizeof(info),None)
 		winKernel.virtualFreeEx(self.processHandle,internalInfo,0,winKernel.MEM_RELEASE)
-		return unicode("%d.\t%s\t%s"%(curIndex+1,info.filetitle,info.filelength), errors="replace", encoding=locale.getlocale()[1])
+		return str("%d.\t%s\t%s"%(curIndex+1, info.filetitle, info.filelength))
 
 	def _get_role(self):
 		return controlTypes.ROLE_LISTITEM
