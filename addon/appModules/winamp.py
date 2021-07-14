@@ -49,9 +49,8 @@ alternateJumpTime = 5
 
 #: A utility function for converting ms to hours/minutes/seconds
 def sec2str(seconds, precision=0):
-	hour = seconds // 3600
-	min = (seconds // 60)%60
-	sec = seconds - (hour * 3600) - (min * 60)
+	min, sec = divmod(seconds, 60)
+	hour, min = divmod(min, 60)
 	sec_spec = "." + str(precision) + "f"
 	sec_string = sec.__format__(sec_spec)
 	string = ""
