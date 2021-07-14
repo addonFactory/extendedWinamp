@@ -114,6 +114,7 @@ class AppModule(appModuleHandler.AppModule):
 		self.hwndWinamp = windll.user32.FindWindowW("Winamp v1.x", None)
 
 class winampMainWindow(IAccessible):
+	scriptCategory = "Winamp"
 
 	def event_nameChange(self):
 		pass
@@ -317,6 +318,17 @@ class winampPlaylistEditor(winampMainWindow):
 	def _get_role(self):
 		return controlTypes.ROLE_LISTITEM
 
+	__changeItemGestures = (
+		"kb:upArrow",
+		"kb:downArrow",
+		"kb:pageUp",
+		"kb:pageDown",
+	)
+
+	@script(
+		gestures=__changeItemGestures,
+		category="Winamp"
+	)
 	def script_changeItem(self, gesture):
 		gesture.send()
 		if not isScriptWaiting():
@@ -325,14 +337,3 @@ class winampPlaylistEditor(winampMainWindow):
 
 	def event_nameChange(self):
 		return super(winampMainWindow, self).event_nameChange()
-
-	__changeItemGestures = (
-		"kb:upArrow",
-		"kb:downArrow",
-		"kb:pageUp",
-		"kb:pageDown",
-	)
-
-	def initOverlayClass(self):
-		for gesture in self.__changeItemGestures:
-			self.bindGesture(gesture, "changeItem")
