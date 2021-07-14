@@ -1,10 +1,9 @@
-#appModules/winamp.py
-#A part of NonVisual Desktop Access (NVDA)
-#Copyright (C) 2006-2010 NVDA Contributors <http://www.nvda-project.org/>
-#This file is covered by the GNU General Public License.
-#See the file COPYING for more details.
+# A part of NonVisual Desktop Access (NVDA)
+# Copyright (C) 2006-2010 NVDA Contributors <http://www.nvda-project.org/>
+# This file is covered by the GNU General Public License.
+# See the file COPYING for more details.
 
-#Some features added by Hrvoje Katic <hrvojekatic@gmail.com>
+# Some features added by Hrvoje Katic <hrvojekatic@gmail.com>
 
 from ctypes import *
 from ctypes.wintypes import *
