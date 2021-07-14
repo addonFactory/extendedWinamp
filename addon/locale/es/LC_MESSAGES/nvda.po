@@ -1,0 +1,172 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: 'extendedWinampAppModule' '1.0'\n"
+"Report-Msgid-Bugs-To: nvda-translations@freelists.org\n"
+"POT-Creation-Date: 2013-01-08 17:22+0100\n"
+"PO-Revision-Date: 2013-01-26 20:02+0100\n"
+"Last-Translator: Juan C. Buño <quetzatl@eresmas.net>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.5.4\n"
+
+#: addon/appModules/winamp.py:60
+#, python-format
+msgid "%d hour, "
+msgstr "%d hora, "
+
+#: addon/appModules/winamp.py:62
+#, python-format
+msgid "%d hours, "
+msgstr "%d horas, "
+
+#: addon/appModules/winamp.py:64
+#, python-format
+msgid "%d minute, "
+msgstr "%d minuto, "
+
+#: addon/appModules/winamp.py:66
+#, python-format
+msgid "%d minutes, "
+msgstr "%d minutos, "
+
+#: addon/appModules/winamp.py:68
+#, python-format
+msgid "%s second"
+msgstr "%s segundo"
+
+#: addon/appModules/winamp.py:70
+#, python-format
+msgid "%s seconds"
+msgstr "%s segundos"
+
+#: addon/appModules/winamp.py:127 addon/appModules/winamp.py:137
+msgid "on"
+msgstr "activado"
+
+#: addon/appModules/winamp.py:129 addon/appModules/winamp.py:139
+msgid "off"
+msgstr "desactivado"
+
+#: addon/appModules/winamp.py:144
+msgid "mute"
+msgstr "silenciado"
+
+#: addon/appModules/winamp.py:145
+msgid "Mute playback"
+msgstr "Reproducción silenciada"
+
+#: addon/appModules/winamp.py:150
+msgid "Set playback volume to 25%"
+msgstr "Establecer volumen de reproducción a 25%"
+
+#: addon/appModules/winamp.py:155
+msgid "Set playback volume to 50%"
+msgstr "Establecer volumen de reproducción a 50%"
+
+#: addon/appModules/winamp.py:160
+msgid "Set playback volume to 100%"
+msgstr "Establecer volumen de reproducción a 100%"
+
+#: addon/appModules/winamp.py:164
+msgid "Pan left"
+msgstr "Valance a la izquierda"
+
+#: addon/appModules/winamp.py:168
+msgid "Pan right"
+msgstr "Valance a la derecha"
+
+#: addon/appModules/winamp.py:172
+msgid "center"
+msgstr "centro"
+
+#: addon/appModules/winamp.py:173
+msgid "Pan center"
+msgstr "Valance al centro"
+
+#: addon/appModules/winamp.py:178 addon/appModules/winamp.py:185
+#: addon/appModules/winamp.py:192
+msgid "No time information."
+msgstr "No hay información de tiempo."
+
+#: addon/appModules/winamp.py:180
+msgid "Speaks total track length"
+msgstr "Verbaliza la longitud total de la pista "
+
+#: addon/appModules/winamp.py:187
+msgid "Speaks track elapsed time"
+msgstr "Verbaliza el tiempo transcurrido de la pista"
+
+#: addon/appModules/winamp.py:194
+msgid "Speaks track remaining time"
+msgstr "Verbaliza el tiempo restante de la pista"
+
+#: addon/appModules/winamp.py:200 addon/appModules/winamp.py:220
+#: addon/appModules/winamp.py:227
+msgid "not playing"
+msgstr "no está en reproducción"
+
+#: addon/appModules/winamp.py:201
+msgid "Review the end of track (last 6 seconds by default)"
+msgstr "Revisar el final de la pista (últimos 6 segundos por omisión)"
+
+#: addon/appModules/winamp.py:207 addon/appModules/winamp.py:234
+msgid "Seconds:"
+msgstr "Segundos:"
+
+#: addon/appModules/winamp.py:207
+msgid "Set review time"
+msgstr "Establecer tiempo de revisión"
+
+#: addon/appModules/winamp.py:211 addon/appModules/winamp.py:238
+msgid "Bad value entered! Please try again."
+msgstr "¡Se Introdujo un valor erróneo! Por favor prueba de nuevo."
+
+#: addon/appModules/winamp.py:211 addon/appModules/winamp.py:238
+msgid "Error"
+msgstr "Error"
+
+#: addon/appModules/winamp.py:214
+msgid ""
+"Set the review time (in seconds) for use with Review End of Track command"
+msgstr ""
+"Establecer el tiempo de revisión (en segundos) para utilizarlo con la orden "
+"Revisión Final de Pista"
+
+#: addon/appModules/winamp.py:221
+msgid "Alternate jump forward (6 seconds by default)"
+msgstr "Salto adelante alternativo (6 segundos por omisión)"
+
+#: addon/appModules/winamp.py:228
+msgid "Alternate jump backward (6 seconds by default)"
+msgstr "Salto atrás alternativo (6 segundos por omisión)"
+
+#: addon/appModules/winamp.py:234
+msgid "Set alternate jump time"
+msgstr "Establecer salto de tiempo alternativo"
+
+#: addon/appModules/winamp.py:242
+msgid "Set alternate jump time (in seconds)"
+msgstr "Establecer salto de tiempo alternativo (en segundos)"
+
+#. Add-on description
+#. TRANSLATORS: Summary for this add-on to be shown on installation and add-on informaiton.
+#: buildVars.py:13
+msgid "An extended appModule for Winamp music player"
+msgstr "Un appModule estendido para el reproductor de música Winamp"
+
+#. Add-on description
+#. Translators: Long description to be shown for this add-on on installation and add-on information
+#: buildVars.py:16
+msgid ""
+"This extended appModule extends the original Winamp appModule found in NVDA "
+"with some extra functionality."
+msgstr ""
+"Este appModule extendido extiende el appModule original de Winamp encontrado "
+"en NVDA con algunas funcionalidades extra."
