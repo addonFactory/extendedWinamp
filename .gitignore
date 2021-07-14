@@ -1,0 +1,9 @@
+addon/doc/*.css
+addon/doc/en/
+*.html
+*.ini
+*.mo
+*.pot
+*.pyc
+*.nvda-addon
+.sconsign.dblite
