@@ -118,7 +118,10 @@ class winampMainWindow(IAccessible):
 	def event_nameChange(self):
 		pass
 
-	@script(description=_("Toggles shuffle state"), gesture="kb:s")
+	@script(
+		description=_("Toggles shuffle state"),
+		gesture="kb:s"
+	)
 	def script_shuffleToggle(self,gesture):
 		gesture.send()
 		if not isScriptWaiting():
@@ -129,7 +132,10 @@ class winampMainWindow(IAccessible):
 				onOff=_("off")
 			ui.message(onOff)
 
-	@script(description=_("Toggles repeat state"), gesture="kb:r")
+	@script(
+		description=_("Toggles repeat state"),
+		gesture="kb:r"
+	)
 	def script_repeatToggle(self,gesture):
 		gesture.send()
 		if not isScriptWaiting():
@@ -140,68 +146,104 @@ class winampMainWindow(IAccessible):
 				onOff=_("off")
 			ui.message(onOff)
 
-	@script(description=_("Mute playback"), gesture="kb:f5")
+	@script(
+		description=_("Mute playback"),
+		gesture="kb:f5"
+	)
 	def script_mute(self,gesture):
 		self.appModule.setVolume(0)
 		ui.message(_("mute"))
 
-	@script(description=_("Set playback volume to 25%"), gesture="kb:f6")
+	@script(
+		description=_("Set playback volume to 25%"),
+		gesture="kb:f6"
+	)
 	def script_volume25(self,gesture):
 		self.appModule.setVolume(64)
 		ui.message("25%")
 
-	@script(description=_("Set playback volume to 50%"), gesture="kb:f7")
+	@script(
+		description=_("Set playback volume to 50%"),
+		gesture="kb:f7"
+	)
 	def script_volume50(self,gesture):
 		self.appModule.setVolume(128)
 		ui.message("50%")
 
-	@script(description=_("Set playback volume to 100%"), gesture="kb:f7")
+	@script(
+		description=_("Set playback volume to 100%"),
+		gesture="kb:f7"
+	)
 	def script_volume100(self,gesture):
 		self.appModule.setVolume(255)
 		ui.message("100%")
 
-	@script(description=_("Pan left"), gesture="kb:Shift+LeftArrow")
+	@script(
+		description=_("Pan left"),
+		gesture="kb:Shift+LeftArrow"
+	)
 	def script_panLeft(self,gesture):
 		self.appModule.setPanning(max(self.appModule.getPanning()-4, -127))
 
-	@script(description=_("Pan right"), gesture="kb:Shift+RightArrow")
+	@script(
+		description=_("Pan right"),
+		gesture="kb:Shift+RightArrow"
+	)
 	def script_panRight(self,gesture):
 		self.appModule.setPanning(min(self.appModule.getPanning()+4, 127))
 
-	@script(description=_("Pan center"), gesture="kb:Shift+UpArrow")
+	@script(
+		description=_("Pan center"),
+		gesture="kb:Shift+UpArrow"
+	)
 	def script_panCenter(self,gesture):
 		self.appModule.setPanning(0)
 		ui.message(_("center"))
 
-	@script(description=_("Speaks total track length"), gesture="kb:Control+Shift+t")
+	@script(
+		description=_("Speaks total track length"),
+		gesture="kb:Control+Shift+t"
+	)
 	def script_totalTrackLength(self,gesture):
 		tm=self.appModule.getOutputTime(1)
 		if tm==-1:
 			return ui.message(_("No time information."))
 		ui.message(sec2str(tm))
 
-	@script(description=_("Speaks track elapsed time"), gesture="kb:Control+Shift+e")
+	@script(
+		description=_("Speaks track elapsed time"),
+		gesture="kb:Control+Shift+e"
+	)
 	def script_trackTimeElapsed(self,gesture):
 		tm=self.appModule.getOutputTime(0)/1000
 		if tm==-1:
 			return ui.message(_("No time information."))
 		ui.message(sec2str(tm))
 
-	@script(description=_("Speaks track remaining time"), gesture="kb:Control+Shift+r")
+	@script(
+		description=_("Speaks track remaining time"),
+		gesture="kb:Control+Shift+r"
+	)
 	def script_trackTimeRemaining(self,gesture):
 		tm=self.appModule.getOutputTime(1)-self.appModule.getOutputTime(0)/1000
 		if self.appModule.getOutputTime(1)==-1:
 			return ui.message(_("No time information."))
 		ui.message(sec2str(tm))
 
-	@script(description=_("Review the end of track (last 6 seconds by default)"), gesture="kb:Shift+r")
+	@script(
+		description=_("Review the end of track (last 6 seconds by default)"),
+		gesture="kb:Shift+r"
+	)
 	def script_reviewEndOfTrack(self,gesture):
 		total=self.appModule.getOutputTime(2)
 		review=total-reviewTime*1000
 		if self.appModule.jumpToTime(review)==-1:
 			ui.message(_("not playing"))
 
-	@script(description=_("Set the review time (in seconds) for use with Review End of Track command"), gesture="kb:Control+r")
+	@script(
+		description=_("Set the review time (in seconds) for use with Review End of Track command"),
+		gesture="kb:Control+r"
+	)
 	def script_setReviewTime(self,gesture):
 		def run():
 			global reviewTime
@@ -216,21 +258,30 @@ class winampMainWindow(IAccessible):
 			gui.mainFrame.postPopup()
 		wx.CallAfter(run)
 
-	@script(description=_("Alternate jump forward (6 seconds by default)"), gesture="kb:Control+RightArrow")
+	@script(
+		description=_("Alternate jump forward (6 seconds by default)"),
+		gesture="kb:Control+RightArrow"
+	)
 	def script_alternateJumpForward(self,gesture):
 		pos=self.appModule.getOutputTime(0)
 		jump=pos+alternateJumpTime*1000
 		if self.appModule.jumpToTime(jump)==-1:
 			ui.message(_("not playing"))
 
-	@script(description=_("Alternate jump backward (6 seconds by default)"), gesture="kb:Control+LeftArrow")
+	@script(
+		description=_("Alternate jump backward (6 seconds by default)"),
+		gesture="kb:Control+LeftArrow"
+	)
 	def script_alternateJumpBackward(self,gesture):
 		pos=self.appModule.getOutputTime(0)
 		jump=pos-alternateJumpTime*1000
 		if self.appModule.jumpToTime(jump)==-1:
 			ui.message(_("not playing"))
 
-	@script(description=_("Set alternate jump time (in seconds)"), gesture="kb:Shift+j")
+	@script(
+		description=_("Set alternate jump time (in seconds)"),
+		gesture="kb:Shift+j"
+	)
 	def script_setAlternateJumpTime(self,gesture):
 		def run():
 			global alternateJumpTime
