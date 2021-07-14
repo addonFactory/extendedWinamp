@@ -55,22 +55,22 @@ def sec2str(seconds, precision=0):
 	sec_spec = "." + str(precision) + "f"
 	sec_string = sec.__format__(sec_spec)
 	string = ""
-	if (hour==1):
+	if (hour == 1):
 		string += _("%d hour, ")%hour
-	elif (hour>=2):
+	elif (hour >= 2):
 		string += _("%d hours, ")%hour
-	if (min==1):
+	if (min == 1):
 		string += _("%d minute, ")%min
-	elif (min>=2):
+	elif (min >= 2):
 		string += _("%d minutes, ")%min
-	if (sec==1):
+	if (sec == 1):
 		string += _("%s second")%sec_string
 	else:
 		string += _("%s seconds")%sec_string
 	return string
 
 class fileinfo2W(Structure):
-	_fields_=[
+	_fields_ = [
 		('fileindex',c_int),
 		('filetitle',c_wchar * 256),
 		('filelength',c_wchar * 16),
@@ -206,7 +206,7 @@ class winampMainWindow(IAccessible):
 	)
 	def script_totalTrackLength(self,gesture):
 		tm = self.appModule.getOutputTime(1)
-		if tm==-1:
+		if tm == -1:
 			return ui.message(_("No time information."))
 		ui.message(sec2str(tm))
 
@@ -216,7 +216,7 @@ class winampMainWindow(IAccessible):
 	)
 	def script_trackTimeElapsed(self,gesture):
 		tm = self.appModule.getOutputTime(0) / 1000
-		if tm==-1:
+		if tm == -1:
 			return ui.message(_("No time information."))
 		ui.message(sec2str(tm))
 
@@ -226,7 +226,7 @@ class winampMainWindow(IAccessible):
 	)
 	def script_trackTimeRemaining(self,gesture):
 		tm = self.appModule.getOutputTime(1) - self.appModule.getOutputTime(0) / 1000
-		if self.appModule.getOutputTime(1)==-1:
+		if self.appModule.getOutputTime(1) == -1:
 			return ui.message(_("No time information."))
 		ui.message(sec2str(tm))
 
@@ -237,7 +237,7 @@ class winampMainWindow(IAccessible):
 	def script_reviewEndOfTrack(self,gesture):
 		total = self.appModule.getOutputTime(2)
 		review = total - reviewTime * 1000
-		if self.appModule.jumpToTime(review)==-1:
+		if self.appModule.jumpToTime(review) == -1:
 			ui.message(_("not playing"))
 
 	@script(
@@ -250,7 +250,7 @@ class winampMainWindow(IAccessible):
 			gui.mainFrame.prePopup()
 			d = wx.TextEntryDialog(gui.mainFrame, _("Seconds:"), _("Set review time"))
 			res = d.ShowModal()
-			if res==wx.ID_OK:
+			if res == wx.ID_OK:
 				try:
 					reviewTime = int(d.GetValue())
 				except ValueError:
@@ -265,7 +265,7 @@ class winampMainWindow(IAccessible):
 	def script_alternateJumpForward(self,gesture):
 		pos = self.appModule.getOutputTime(0)
 		jump = pos + alternateJumpTime * 1000
-		if self.appModule.jumpToTime(jump)==-1:
+		if self.appModule.jumpToTime(jump) == -1:
 			ui.message(_("not playing"))
 
 	@script(
@@ -275,7 +275,7 @@ class winampMainWindow(IAccessible):
 	def script_alternateJumpBackward(self,gesture):
 		pos = self.appModule.getOutputTime(0)
 		jump = pos - alternateJumpTime * 1000
-		if self.appModule.jumpToTime(jump)==-1:
+		if self.appModule.jumpToTime(jump) == -1:
 			ui.message(_("not playing"))
 
 	@script(
@@ -288,7 +288,7 @@ class winampMainWindow(IAccessible):
 			gui.mainFrame.prePopup()
 			d = wx.TextEntryDialog(gui.mainFrame, _("Seconds:"), _("Set alternate jump time"))
 			res = d.ShowModal()
-			if res==wx.ID_OK:
+			if res == wx.ID_OK:
 				try:
 					alternateJumpTime = int(d.GetValue())
 				except ValueError:
@@ -301,10 +301,10 @@ class winampPlaylistEditor(winampMainWindow):
 
 	def _get_name(self):
 		curIndex = winUser.sendMessage(self.appModule.hwndWinamp,WM_WA_IPC,-1,IPC_PLAYLIST_GET_NEXT_SELECTED)
-		if curIndex <0:
+		if curIndex < 0:
 			return None
 		info = fileinfo2W()
-		info.fileindex=curIndex
+		info.fileindex = curIndex
 		internalInfo = winKernel.virtualAllocEx(
 			self.processHandle,None,sizeof(info),winKernel.MEM_COMMIT,winKernel.PAGE_READWRITE
 		)
