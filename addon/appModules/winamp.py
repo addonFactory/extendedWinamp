@@ -49,31 +49,31 @@ alternateJumpTime = 5
 
 #: A utility function for converting ms to hours/minutes/seconds
 def sec2str(seconds, precision=0):
-	hour = seconds//3600
-	min = (seconds//60)%60
-	sec = seconds-(hour*3600)-(min*60)
-	sec_spec = "."+str(precision)+"f"
+	hour = seconds // 3600
+	min = (seconds // 60)%60
+	sec = seconds - (hour * 3600) - (min * 60)
+	sec_spec = "." + str(precision) + "f"
 	sec_string = sec.__format__(sec_spec)
 	string = ""
 	if (hour==1):
-		string+=_("%d hour, ")%hour
+		string += _("%d hour, ")%hour
 	elif (hour>=2):
-		string+=_("%d hours, ")%hour
+		string += _("%d hours, ")%hour
 	if (min==1):
-		string+=_("%d minute, ")%min
+		string += _("%d minute, ")%min
 	elif (min>=2):
-		string+=_("%d minutes, ")%min
+		string += _("%d minutes, ")%min
 	if (sec==1):
-		string+=_("%s second")%sec_string
+		string += _("%s second")%sec_string
 	else:
-		string+=_("%s seconds")%sec_string
+		string += _("%s seconds")%sec_string
 	return string
 
 class fileinfo2W(Structure):
 	_fields_=[
 		('fileindex',c_int),
-		('filetitle',c_wchar*256),
-		('filelength',c_wchar*16),
+		('filetitle',c_wchar * 256),
+		('filelength',c_wchar * 16),
 	]
 
 class AppModule(appModuleHandler.AppModule):
@@ -183,14 +183,14 @@ class winampMainWindow(IAccessible):
 		gesture="kb:Shift+LeftArrow"
 	)
 	def script_panLeft(self,gesture):
-		self.appModule.setPanning(max(self.appModule.getPanning()-4, -127))
+		self.appModule.setPanning(max(self.appModule.getPanning() - 4, -127))
 
 	@script(
 		description=_("Pan right"),
 		gesture="kb:Shift+RightArrow"
 	)
 	def script_panRight(self,gesture):
-		self.appModule.setPanning(min(self.appModule.getPanning()+4, 127))
+		self.appModule.setPanning(min(self.appModule.getPanning() + 4, 127))
 
 	@script(
 		description=_("Pan center"),
@@ -215,7 +215,7 @@ class winampMainWindow(IAccessible):
 		gesture="kb:Control+Shift+e"
 	)
 	def script_trackTimeElapsed(self,gesture):
-		tm = self.appModule.getOutputTime(0)/1000
+		tm = self.appModule.getOutputTime(0) / 1000
 		if tm==-1:
 			return ui.message(_("No time information."))
 		ui.message(sec2str(tm))
@@ -225,7 +225,7 @@ class winampMainWindow(IAccessible):
 		gesture="kb:Control+Shift+r"
 	)
 	def script_trackTimeRemaining(self,gesture):
-		tm = self.appModule.getOutputTime(1)-self.appModule.getOutputTime(0)/1000
+		tm = self.appModule.getOutputTime(1) - self.appModule.getOutputTime(0) / 1000
 		if self.appModule.getOutputTime(1)==-1:
 			return ui.message(_("No time information."))
 		ui.message(sec2str(tm))
@@ -236,7 +236,7 @@ class winampMainWindow(IAccessible):
 	)
 	def script_reviewEndOfTrack(self,gesture):
 		total = self.appModule.getOutputTime(2)
-		review = total-reviewTime*1000
+		review = total - reviewTime * 1000
 		if self.appModule.jumpToTime(review)==-1:
 			ui.message(_("not playing"))
 
@@ -264,7 +264,7 @@ class winampMainWindow(IAccessible):
 	)
 	def script_alternateJumpForward(self,gesture):
 		pos = self.appModule.getOutputTime(0)
-		jump = pos+alternateJumpTime*1000
+		jump = pos + alternateJumpTime * 1000
 		if self.appModule.jumpToTime(jump)==-1:
 			ui.message(_("not playing"))
 
@@ -274,7 +274,7 @@ class winampMainWindow(IAccessible):
 	)
 	def script_alternateJumpBackward(self,gesture):
 		pos = self.appModule.getOutputTime(0)
-		jump = pos-alternateJumpTime*1000
+		jump = pos - alternateJumpTime * 1000
 		if self.appModule.jumpToTime(jump)==-1:
 			ui.message(_("not playing"))
 
@@ -312,7 +312,7 @@ class winampPlaylistEditor(winampMainWindow):
 		winUser.sendMessage(self.windowHandle,WM_WA_IPC,IPC_PE_GETINDEXTITLE,internalInfo)
 		winKernel.readProcessMemory(self.processHandle,internalInfo,byref(info),sizeof(info),None)
 		winKernel.virtualFreeEx(self.processHandle,internalInfo,0,winKernel.MEM_RELEASE)
-		return str("%d.\t%s\t%s"%(curIndex+1, info.filetitle, info.filelength))
+		return str("%d.\t%s\t%s"%(curIndex + 1, info.filetitle, info.filelength))
 
 	def _get_role(self):
 		return controlTypes.ROLE_LISTITEM
