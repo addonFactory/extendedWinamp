@@ -71,9 +71,9 @@ def sec2str(seconds, precision=0):
 
 class fileinfo2W(Structure):
 	_fields_ = [
-		('fileindex',c_int),
-		('filetitle',c_wchar * 256),
-		('filelength',c_wchar * 16),
+		('fileindex', c_int),
+		('filetitle', c_wchar * 256),
+		('filelength', c_wchar * 16),
 	]
 
 class AppModule(appModuleHandler.AppModule):
@@ -86,32 +86,32 @@ class AppModule(appModuleHandler.AppModule):
 			clsList.insert(0, winampMainWindow)
 
 	def getShuffle(self):
-		return winUser.sendMessage(self.hwndWinamp,WM_WA_IPC,0,IPC_GET_SHUFFLE)
+		return winUser.sendMessage(self.hwndWinamp, WM_WA_IPC, 0, IPC_GET_SHUFFLE)
 
 	def getRepeat(self):
-		return winUser.sendMessage(self.hwndWinamp,WM_WA_IPC,0,IPC_GET_REPEAT)
+		return winUser.sendMessage(self.hwndWinamp, WM_WA_IPC, 0, IPC_GET_REPEAT)
 
 	def getVolume(self):
-		return winUser.sendMessage(self.hwndWinamp,WM_WA_IPC,-666,IPC_SETVOLUME)
+		return winUser.sendMessage(self.hwndWinamp, WM_WA_IPC, -666, IPC_SETVOLUME)
 
-	def setVolume(self,vol):
-		return winUser.sendMessage(self.hwndWinamp,WM_WA_IPC,vol,IPC_SETVOLUME)
+	def setVolume(self, vol):
+		return winUser.sendMessage(self.hwndWinamp, WM_WA_IPC, vol, IPC_SETVOLUME)
 
 	def getPanning(self):
-		return winUser.sendMessage(self.hwndWinamp,WM_WA_IPC,-666,IPC_SETPANNING)
+		return winUser.sendMessage(self.hwndWinamp, WM_WA_IPC, -666, IPC_SETPANNING)
 
-	def setPanning(self,pan):
-		return winUser.sendMessage(self.hwndWinamp,WM_WA_IPC,pan,IPC_SETPANNING)
+	def setPanning(self, pan):
+		return winUser.sendMessage(self.hwndWinamp, WM_WA_IPC, pan, IPC_SETPANNING)
 
-	def getOutputTime(self,mode):
-		return winUser.sendMessage(self.hwndWinamp,WM_WA_IPC,mode,IPC_GETOUTPUTTIME)
+	def getOutputTime(self, mode):
+		return winUser.sendMessage(self.hwndWinamp, WM_WA_IPC, mode, IPC_GETOUTPUTTIME)
 
-	def jumpToTime(self,ms):
-		return winUser.sendMessage(self.hwndWinamp,WM_WA_IPC,ms,IPC_JUMPTOTIME)
+	def jumpToTime(self, ms):
+		return winUser.sendMessage(self.hwndWinamp, WM_WA_IPC, ms, IPC_JUMPTOTIME)
 
 	def __init__(self, *args, **kwargs):
 		super(AppModule, self).__init__(*args, **kwargs)
-		self.hwndWinamp = windll.user32.FindWindowW("Winamp v1.x",None)
+		self.hwndWinamp = windll.user32.FindWindowW("Winamp v1.x", None)
 
 class winampMainWindow(IAccessible):
 
@@ -122,7 +122,7 @@ class winampMainWindow(IAccessible):
 		description=_("Toggles shuffle state"),
 		gesture="kb:s"
 	)
-	def script_shuffleToggle(self,gesture):
+	def script_shuffleToggle(self, gesture):
 		gesture.send()
 		if not isScriptWaiting():
 			api.processPendingEvents()
@@ -136,7 +136,7 @@ class winampMainWindow(IAccessible):
 		description=_("Toggles repeat state"),
 		gesture="kb:r"
 	)
-	def script_repeatToggle(self,gesture):
+	def script_repeatToggle(self, gesture):
 		gesture.send()
 		if not isScriptWaiting():
 			api.processPendingEvents()
@@ -150,7 +150,7 @@ class winampMainWindow(IAccessible):
 		description=_("Mute playback"),
 		gesture="kb:f5"
 	)
-	def script_mute(self,gesture):
+	def script_mute(self, gesture):
 		self.appModule.setVolume(0)
 		ui.message(_("mute"))
 
@@ -158,7 +158,7 @@ class winampMainWindow(IAccessible):
 		description=_("Set playback volume to 25%"),
 		gesture="kb:f6"
 	)
-	def script_volume25(self,gesture):
+	def script_volume25(self, gesture):
 		self.appModule.setVolume(64)
 		ui.message("25%")
 
@@ -166,7 +166,7 @@ class winampMainWindow(IAccessible):
 		description=_("Set playback volume to 50%"),
 		gesture="kb:f7"
 	)
-	def script_volume50(self,gesture):
+	def script_volume50(self, gesture):
 		self.appModule.setVolume(128)
 		ui.message("50%")
 
@@ -174,7 +174,7 @@ class winampMainWindow(IAccessible):
 		description=_("Set playback volume to 100%"),
 		gesture="kb:f7"
 	)
-	def script_volume100(self,gesture):
+	def script_volume100(self, gesture):
 		self.appModule.setVolume(255)
 		ui.message("100%")
 
@@ -182,21 +182,21 @@ class winampMainWindow(IAccessible):
 		description=_("Pan left"),
 		gesture="kb:Shift+LeftArrow"
 	)
-	def script_panLeft(self,gesture):
+	def script_panLeft(self, gesture):
 		self.appModule.setPanning(max(self.appModule.getPanning() - 4, -127))
 
 	@script(
 		description=_("Pan right"),
 		gesture="kb:Shift+RightArrow"
 	)
-	def script_panRight(self,gesture):
+	def script_panRight(self, gesture):
 		self.appModule.setPanning(min(self.appModule.getPanning() + 4, 127))
 
 	@script(
 		description=_("Pan center"),
 		gesture="kb:Shift+UpArrow"
 	)
-	def script_panCenter(self,gesture):
+	def script_panCenter(self, gesture):
 		self.appModule.setPanning(0)
 		ui.message(_("center"))
 
@@ -204,7 +204,7 @@ class winampMainWindow(IAccessible):
 		description=_("Speaks total track length"),
 		gesture="kb:Control+Shift+t"
 	)
-	def script_totalTrackLength(self,gesture):
+	def script_totalTrackLength(self, gesture):
 		tm = self.appModule.getOutputTime(1)
 		if tm == -1:
 			return ui.message(_("No time information."))
@@ -214,7 +214,7 @@ class winampMainWindow(IAccessible):
 		description=_("Speaks track elapsed time"),
 		gesture="kb:Control+Shift+e"
 	)
-	def script_trackTimeElapsed(self,gesture):
+	def script_trackTimeElapsed(self, gesture):
 		tm = self.appModule.getOutputTime(0) / 1000
 		if tm == -1:
 			return ui.message(_("No time information."))
@@ -224,7 +224,7 @@ class winampMainWindow(IAccessible):
 		description=_("Speaks track remaining time"),
 		gesture="kb:Control+Shift+r"
 	)
-	def script_trackTimeRemaining(self,gesture):
+	def script_trackTimeRemaining(self, gesture):
 		tm = self.appModule.getOutputTime(1) - self.appModule.getOutputTime(0) / 1000
 		if self.appModule.getOutputTime(1) == -1:
 			return ui.message(_("No time information."))
@@ -234,7 +234,7 @@ class winampMainWindow(IAccessible):
 		description=_("Review the end of track (last 6 seconds by default)"),
 		gesture="kb:Shift+r"
 	)
-	def script_reviewEndOfTrack(self,gesture):
+	def script_reviewEndOfTrack(self, gesture):
 		total = self.appModule.getOutputTime(2)
 		review = total - reviewTime * 1000
 		if self.appModule.jumpToTime(review) == -1:
@@ -244,7 +244,7 @@ class winampMainWindow(IAccessible):
 		description=_("Set the review time (in seconds) for use with Review End of Track command"),
 		gesture="kb:Control+r"
 	)
-	def script_setReviewTime(self,gesture):
+	def script_setReviewTime(self, gesture):
 		def run():
 			global reviewTime
 			gui.mainFrame.prePopup()
@@ -262,7 +262,7 @@ class winampMainWindow(IAccessible):
 		description=_("Alternate jump forward (6 seconds by default)"),
 		gesture="kb:Control+RightArrow"
 	)
-	def script_alternateJumpForward(self,gesture):
+	def script_alternateJumpForward(self, gesture):
 		pos = self.appModule.getOutputTime(0)
 		jump = pos + alternateJumpTime * 1000
 		if self.appModule.jumpToTime(jump) == -1:
@@ -272,7 +272,7 @@ class winampMainWindow(IAccessible):
 		description=_("Alternate jump backward (6 seconds by default)"),
 		gesture="kb:Control+LeftArrow"
 	)
-	def script_alternateJumpBackward(self,gesture):
+	def script_alternateJumpBackward(self, gesture):
 		pos = self.appModule.getOutputTime(0)
 		jump = pos - alternateJumpTime * 1000
 		if self.appModule.jumpToTime(jump) == -1:
@@ -282,7 +282,7 @@ class winampMainWindow(IAccessible):
 		description=_("Set alternate jump time (in seconds)"),
 		gesture="kb:Shift+j"
 	)
-	def script_setAlternateJumpTime(self,gesture):
+	def script_setAlternateJumpTime(self, gesture):
 		def run():
 			global alternateJumpTime
 			gui.mainFrame.prePopup()
@@ -300,31 +300,31 @@ class winampMainWindow(IAccessible):
 class winampPlaylistEditor(winampMainWindow):
 
 	def _get_name(self):
-		curIndex = winUser.sendMessage(self.appModule.hwndWinamp,WM_WA_IPC,-1,IPC_PLAYLIST_GET_NEXT_SELECTED)
+		curIndex = winUser.sendMessage(self.appModule.hwndWinamp, WM_WA_IPC, -1, IPC_PLAYLIST_GET_NEXT_SELECTED)
 		if curIndex < 0:
 			return None
 		info = fileinfo2W()
 		info.fileindex = curIndex
 		internalInfo = winKernel.virtualAllocEx(
-			self.processHandle,None,sizeof(info),winKernel.MEM_COMMIT,winKernel.PAGE_READWRITE
+			self.processHandle, None, sizeof(info), winKernel.MEM_COMMIT, winKernel.PAGE_READWRITE
 		)
-		winKernel.writeProcessMemory(self.processHandle,internalInfo,byref(info),sizeof(info),None)
-		winUser.sendMessage(self.windowHandle,WM_WA_IPC,IPC_PE_GETINDEXTITLE,internalInfo)
-		winKernel.readProcessMemory(self.processHandle,internalInfo,byref(info),sizeof(info),None)
-		winKernel.virtualFreeEx(self.processHandle,internalInfo,0,winKernel.MEM_RELEASE)
+		winKernel.writeProcessMemory(self.processHandle, internalInfo, byref(info), sizeof(info), None)
+		winUser.sendMessage(self.windowHandle, WM_WA_IPC, IPC_PE_GETINDEXTITLE, internalInfo)
+		winKernel.readProcessMemory(self.processHandle, internalInfo, byref(info), sizeof(info), None)
+		winKernel.virtualFreeEx(self.processHandle, internalInfo, 0, winKernel.MEM_RELEASE)
 		return str("%d.\t%s\t%s"%(curIndex + 1, info.filetitle, info.filelength))
 
 	def _get_role(self):
 		return controlTypes.ROLE_LISTITEM
 
-	def script_changeItem(self,gesture):
+	def script_changeItem(self, gesture):
 		gesture.send()
 		if not isScriptWaiting():
 			api.processPendingEvents()
-			speech.speakObject(self,reason=controlTypes.OutputReason.FOCUS)
+			speech.speakObject(self, reason=controlTypes.OutputReason.FOCUS)
 
 	def event_nameChange(self):
-		return super(winampMainWindow,self).event_nameChange()
+		return super(winampMainWindow, self).event_nameChange()
 
 	__changeItemGestures = (
 		"kb:upArrow",
