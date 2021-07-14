@@ -254,7 +254,7 @@ class winampMainWindow(IAccessible):
 				try:
 					reviewTime = int(d.GetValue())
 				except ValueError:
-					wx.MessageBox(_("Bad value entered! Please try again."), _("Error"), wx.OK|wx.ICON_ERROR)
+					wx.MessageBox(_("Bad value entered! Please try again."), _("Error"), wx.OK | wx.ICON_ERROR)
 			gui.mainFrame.postPopup()
 		wx.CallAfter(run)
 
@@ -292,7 +292,7 @@ class winampMainWindow(IAccessible):
 				try:
 					alternateJumpTime = int(d.GetValue())
 				except ValueError:
-					wx.MessageBox(_("Bad value entered! Please try again."), _("Error"), wx.OK|wx.ICON_ERROR)
+					wx.MessageBox(_("Bad value entered! Please try again."), _("Error"), wx.OK | wx.ICON_ERROR)
 			d.Destroy()
 			gui.mainFrame.postPopup()
 		wx.CallAfter(run)
