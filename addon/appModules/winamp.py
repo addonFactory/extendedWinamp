@@ -305,7 +305,9 @@ class winampPlaylistEditor(winampMainWindow):
 			return None
 		info=fileinfo2W()
 		info.fileindex=curIndex
-		internalInfo=winKernel.virtualAllocEx(self.processHandle,None,sizeof(info),winKernel.MEM_COMMIT,winKernel.PAGE_READWRITE)
+		internalInfo=winKernel.virtualAllocEx(
+			self.processHandle,None,sizeof(info),winKernel.MEM_COMMIT,winKernel.PAGE_READWRITE
+		)
 		winKernel.writeProcessMemory(self.processHandle,internalInfo,byref(info),sizeof(info),None)
 		winUser.sendMessage(self.windowHandle,WM_WA_IPC,IPC_PE_GETINDEXTITLE,internalInfo)
 		winKernel.readProcessMemory(self.processHandle,internalInfo,byref(info),sizeof(info),None)
