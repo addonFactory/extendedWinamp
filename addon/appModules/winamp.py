@@ -10,7 +10,7 @@ from ctypes.wintypes import *
 import winKernel
 import winUser
 from scriptHandler import isScriptWaiting, script
-from NVDAObjects.IAccessible import IAccessible 
+from NVDAObjects.IAccessible import IAccessible
 import appModuleHandler
 import ui
 import speech
@@ -22,7 +22,7 @@ import wx
 import addonHandler
 addonHandler.initTranslation()
 
-# message used to sent many messages to winamp's main window. 
+# message used to sent many messages to winamp's main window.
 # most all of the IPC_* messages involve sending the message in the form of:
 #   result = SendMessage(hwnd_winamp,WM_WA_IPC,(parameter),IPC_*);
 
