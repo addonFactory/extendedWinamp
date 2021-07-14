@@ -26,35 +26,35 @@ addonHandler.initTranslation()
 # most all of the IPC_* messages involve sending the message in the form of:
 #   result = SendMessage(hwnd_winamp,WM_WA_IPC,(parameter),IPC_*);
 
-WM_WA_IPC=winUser.WM_USER
+WM_WA_IPC = winUser.WM_USER
 
 # winamp window
-IPC_GET_SHUFFLE=250
-IPC_GET_REPEAT=251
-IPC_SETVOLUME=122
-IPC_SETPANNING=123
-IPC_GETOUTPUTTIME=105
-IPC_JUMPTOTIME=106
+IPC_GET_SHUFFLE = 250
+IPC_GET_REPEAT = 251
+IPC_SETVOLUME = 122
+IPC_SETPANNING = 123
+IPC_GETOUTPUTTIME = 105
+IPC_JUMPTOTIME = 106
 
 # playlist editor
-IPC_PLAYLIST_GET_NEXT_SELECTED=3029
-IPC_PE_GETCURINDEX=100
-IPC_PE_GETINDEXTOTAL=101
+IPC_PLAYLIST_GET_NEXT_SELECTED = 3029
+IPC_PE_GETCURINDEX = 100
+IPC_PE_GETINDEXTOTAL = 101
 # in_process ONLY
-IPC_PE_GETINDEXTITLE=201  # lParam = pointer to fileinfo2W structure
+IPC_PE_GETINDEXTITLE = 201  # lParam = pointer to fileinfo2W structure
 
 # Default values for review and alternate jump times
-reviewTime=6
-alternateJumpTime=5
+reviewTime = 6
+alternateJumpTime = 5
 
 #: A utility function for converting ms to hours/minutes/seconds
 def sec2str(seconds, precision=0):
-	hour=seconds//3600
-	min=(seconds//60)%60
-	sec=seconds-(hour*3600)-(min*60)
-	sec_spec="."+str(precision)+"f"
-	sec_string=sec.__format__(sec_spec)
-	string=""
+	hour = seconds//3600
+	min = (seconds//60)%60
+	sec = seconds-(hour*3600)-(min*60)
+	sec_spec = "."+str(precision)+"f"
+	sec_string = sec.__format__(sec_spec)
+	string = ""
 	if (hour==1):
 		string+=_("%d hour, ")%hour
 	elif (hour>=2):
@@ -111,7 +111,7 @@ class AppModule(appModuleHandler.AppModule):
 
 	def __init__(self, *args, **kwargs):
 		super(AppModule, self).__init__(*args, **kwargs)
-		self.hwndWinamp=windll.user32.FindWindowW("Winamp v1.x",None)
+		self.hwndWinamp = windll.user32.FindWindowW("Winamp v1.x",None)
 
 class winampMainWindow(IAccessible):
 
@@ -127,9 +127,9 @@ class winampMainWindow(IAccessible):
 		if not isScriptWaiting():
 			api.processPendingEvents()
 			if self.appModule.getShuffle():
-				onOff=_("on")
+				onOff = _("on")
 			else:
-				onOff=_("off")
+				onOff = _("off")
 			ui.message(onOff)
 
 	@script(
@@ -141,9 +141,9 @@ class winampMainWindow(IAccessible):
 		if not isScriptWaiting():
 			api.processPendingEvents()
 			if self.appModule.getRepeat():
-				onOff=_("on")
+				onOff = _("on")
 			else:
-				onOff=_("off")
+				onOff = _("off")
 			ui.message(onOff)
 
 	@script(
@@ -205,7 +205,7 @@ class winampMainWindow(IAccessible):
 		gesture="kb:Control+Shift+t"
 	)
 	def script_totalTrackLength(self,gesture):
-		tm=self.appModule.getOutputTime(1)
+		tm = self.appModule.getOutputTime(1)
 		if tm==-1:
 			return ui.message(_("No time information."))
 		ui.message(sec2str(tm))
@@ -215,7 +215,7 @@ class winampMainWindow(IAccessible):
 		gesture="kb:Control+Shift+e"
 	)
 	def script_trackTimeElapsed(self,gesture):
-		tm=self.appModule.getOutputTime(0)/1000
+		tm = self.appModule.getOutputTime(0)/1000
 		if tm==-1:
 			return ui.message(_("No time information."))
 		ui.message(sec2str(tm))
@@ -225,7 +225,7 @@ class winampMainWindow(IAccessible):
 		gesture="kb:Control+Shift+r"
 	)
 	def script_trackTimeRemaining(self,gesture):
-		tm=self.appModule.getOutputTime(1)-self.appModule.getOutputTime(0)/1000
+		tm = self.appModule.getOutputTime(1)-self.appModule.getOutputTime(0)/1000
 		if self.appModule.getOutputTime(1)==-1:
 			return ui.message(_("No time information."))
 		ui.message(sec2str(tm))
@@ -235,8 +235,8 @@ class winampMainWindow(IAccessible):
 		gesture="kb:Shift+r"
 	)
 	def script_reviewEndOfTrack(self,gesture):
-		total=self.appModule.getOutputTime(2)
-		review=total-reviewTime*1000
+		total = self.appModule.getOutputTime(2)
+		review = total-reviewTime*1000
 		if self.appModule.jumpToTime(review)==-1:
 			ui.message(_("not playing"))
 
@@ -248,11 +248,11 @@ class winampMainWindow(IAccessible):
 		def run():
 			global reviewTime
 			gui.mainFrame.prePopup()
-			d=wx.TextEntryDialog(gui.mainFrame, _("Seconds:"), _("Set review time"))
-			res=d.ShowModal()
+			d = wx.TextEntryDialog(gui.mainFrame, _("Seconds:"), _("Set review time"))
+			res = d.ShowModal()
 			if res==wx.ID_OK:
 				try:
-					reviewTime=int(d.GetValue())
+					reviewTime = int(d.GetValue())
 				except ValueError:
 					wx.MessageBox(_("Bad value entered! Please try again."), _("Error"), wx.OK|wx.ICON_ERROR)
 			gui.mainFrame.postPopup()
@@ -263,8 +263,8 @@ class winampMainWindow(IAccessible):
 		gesture="kb:Control+RightArrow"
 	)
 	def script_alternateJumpForward(self,gesture):
-		pos=self.appModule.getOutputTime(0)
-		jump=pos+alternateJumpTime*1000
+		pos = self.appModule.getOutputTime(0)
+		jump = pos+alternateJumpTime*1000
 		if self.appModule.jumpToTime(jump)==-1:
 			ui.message(_("not playing"))
 
@@ -273,8 +273,8 @@ class winampMainWindow(IAccessible):
 		gesture="kb:Control+LeftArrow"
 	)
 	def script_alternateJumpBackward(self,gesture):
-		pos=self.appModule.getOutputTime(0)
-		jump=pos-alternateJumpTime*1000
+		pos = self.appModule.getOutputTime(0)
+		jump = pos-alternateJumpTime*1000
 		if self.appModule.jumpToTime(jump)==-1:
 			ui.message(_("not playing"))
 
@@ -286,11 +286,11 @@ class winampMainWindow(IAccessible):
 		def run():
 			global alternateJumpTime
 			gui.mainFrame.prePopup()
-			d=wx.TextEntryDialog(gui.mainFrame, _("Seconds:"), _("Set alternate jump time"))
-			res=d.ShowModal()
+			d = wx.TextEntryDialog(gui.mainFrame, _("Seconds:"), _("Set alternate jump time"))
+			res = d.ShowModal()
 			if res==wx.ID_OK:
 				try:
-					alternateJumpTime=int(d.GetValue())
+					alternateJumpTime = int(d.GetValue())
 				except ValueError:
 					wx.MessageBox(_("Bad value entered! Please try again."), _("Error"), wx.OK|wx.ICON_ERROR)
 			d.Destroy()
@@ -300,12 +300,12 @@ class winampMainWindow(IAccessible):
 class winampPlaylistEditor(winampMainWindow):
 
 	def _get_name(self):
-		curIndex=winUser.sendMessage(self.appModule.hwndWinamp,WM_WA_IPC,-1,IPC_PLAYLIST_GET_NEXT_SELECTED)
+		curIndex = winUser.sendMessage(self.appModule.hwndWinamp,WM_WA_IPC,-1,IPC_PLAYLIST_GET_NEXT_SELECTED)
 		if curIndex <0:
 			return None
-		info=fileinfo2W()
+		info = fileinfo2W()
 		info.fileindex=curIndex
-		internalInfo=winKernel.virtualAllocEx(
+		internalInfo = winKernel.virtualAllocEx(
 			self.processHandle,None,sizeof(info),winKernel.MEM_COMMIT,winKernel.PAGE_READWRITE
 		)
 		winKernel.writeProcessMemory(self.processHandle,internalInfo,byref(info),sizeof(info),None)
