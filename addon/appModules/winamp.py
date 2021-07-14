@@ -41,9 +41,9 @@ IPC_PLAYLIST_GET_NEXT_SELECTED=3029
 IPC_PE_GETCURINDEX=100
 IPC_PE_GETINDEXTOTAL=101
 # in_process ONLY
-IPC_PE_GETINDEXTITLE=201 #  lParam = pointer to fileinfo2W structure
+IPC_PE_GETINDEXTITLE=201  # lParam = pointer to fileinfo2W structure
 
-#Default values for review and alternate jump times
+# Default values for review and alternate jump times
 reviewTime=6
 alternateJumpTime=5
 
@@ -209,8 +209,10 @@ class winampMainWindow(IAccessible):
 			d=wx.TextEntryDialog(gui.mainFrame, _("Seconds:"), _("Set review time"))
 			res=d.ShowModal()
 			if res==wx.ID_OK:
-				try: reviewTime=int(d.GetValue())
-				except ValueError: wx.MessageBox(_("Bad value entered! Please try again."), _("Error"), wx.OK|wx.ICON_ERROR)
+				try:
+					reviewTime=int(d.GetValue())
+				except ValueError:
+					wx.MessageBox(_("Bad value entered! Please try again."), _("Error"), wx.OK|wx.ICON_ERROR)
 			gui.mainFrame.postPopup()
 		wx.CallAfter(run)
 
@@ -236,8 +238,10 @@ class winampMainWindow(IAccessible):
 			d=wx.TextEntryDialog(gui.mainFrame, _("Seconds:"), _("Set alternate jump time"))
 			res=d.ShowModal()
 			if res==wx.ID_OK:
-				try: alternateJumpTime=int(d.GetValue())
-				except ValueError: wx.MessageBox(_("Bad value entered! Please try again."), _("Error"), wx.OK|wx.ICON_ERROR)
+				try:
+					alternateJumpTime=int(d.GetValue())
+				except ValueError:
+					wx.MessageBox(_("Bad value entered! Please try again."), _("Error"), wx.OK|wx.ICON_ERROR)
 			d.Destroy()
 			gui.mainFrame.postPopup()
 		wx.CallAfter(run)
