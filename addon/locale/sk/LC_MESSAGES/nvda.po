@@ -1,0 +1,173 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: 'extendedWinampAppModule' '1.0'\n"
+"Report-Msgid-Bugs-To: nvda-translations@freelists.org\n"
+"POT-Creation-Date: 2013-01-08 17:22+0100\n"
+"PO-Revision-Date: 2013-01-15 13:52+0100\n"
+"Last-Translator: Ondrej Rosík <ondrej.rosik@gmail.com>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: addon/appModules/winamp.py:60
+#, python-format
+msgid "%d hour, "
+msgstr "%d hodina, "
+
+#: addon/appModules/winamp.py:62
+#, python-format
+msgid "%d hours, "
+msgstr "%d hodín, "
+
+#: addon/appModules/winamp.py:64
+#, python-format
+msgid "%d minute, "
+msgstr "%d minúta, "
+
+#: addon/appModules/winamp.py:66
+#, python-format
+msgid "%d minutes, "
+msgstr "%d minút, "
+
+#: addon/appModules/winamp.py:68
+#, python-format
+msgid "%s second"
+msgstr "%s sekunda"
+
+#: addon/appModules/winamp.py:70
+#, python-format
+msgid "%s seconds"
+msgstr "%s sekúnd"
+
+#: addon/appModules/winamp.py:127
+#: addon/appModules/winamp.py:137
+msgid "on"
+msgstr "zapnuté"
+
+#: addon/appModules/winamp.py:129
+#: addon/appModules/winamp.py:139
+msgid "off"
+msgstr "vypnuté"
+
+#: addon/appModules/winamp.py:144
+msgid "mute"
+msgstr "stlmiť"
+
+#: addon/appModules/winamp.py:145
+msgid "Mute playback"
+msgstr "Stlmiť prehrávanie"
+
+#: addon/appModules/winamp.py:150
+msgid "Set playback volume to 25%"
+msgstr "Nastaviť hlasitosť prehrávania na 25%"
+
+#: addon/appModules/winamp.py:155
+msgid "Set playback volume to 50%"
+msgstr "Nastaviť hlasitosť prehrávania na 50%"
+
+#: addon/appModules/winamp.py:160
+msgid "Set playback volume to 100%"
+msgstr "Nastaviť hlasitosť prehrávania na 100 %"
+
+#: addon/appModules/winamp.py:164
+msgid "Pan left"
+msgstr "Posunúť doľava"
+
+#: addon/appModules/winamp.py:168
+msgid "Pan right"
+msgstr "Posunúť doprava"
+
+#: addon/appModules/winamp.py:172
+msgid "center"
+msgstr "Stred"
+
+#: addon/appModules/winamp.py:173
+msgid "Pan center"
+msgstr "Vyvážiť na stred"
+
+#: addon/appModules/winamp.py:178
+#: addon/appModules/winamp.py:185
+#: addon/appModules/winamp.py:192
+msgid "No time information."
+msgstr "Bez časovej informácie."
+
+#: addon/appModules/winamp.py:180
+msgid "Speaks total track length"
+msgstr "Prečíta celkovú dĺžku skladby."
+
+#: addon/appModules/winamp.py:187
+msgid "Speaks track elapsed time"
+msgstr "Prečíta uplynutý čas skladby."
+
+#: addon/appModules/winamp.py:194
+msgid "Speaks track remaining time"
+msgstr "prečíta zostávajúci čas prehrávania aktuálnej skladby."
+
+#: addon/appModules/winamp.py:200
+#: addon/appModules/winamp.py:220
+#: addon/appModules/winamp.py:227
+msgid "not playing"
+msgstr "neprehrávam"
+
+#: addon/appModules/winamp.py:201
+msgid "Review the end of track (last 6 seconds by default)"
+msgstr "Náhľad konca (predvolene posledných 6 sekúnd)."
+
+#: addon/appModules/winamp.py:207
+#: addon/appModules/winamp.py:234
+msgid "Seconds:"
+msgstr "Sekúnd:"
+
+#: addon/appModules/winamp.py:207
+msgid "Set review time"
+msgstr "nastaviť čas náhľadu"
+
+#: addon/appModules/winamp.py:211
+#: addon/appModules/winamp.py:238
+msgid "Bad value entered! Please try again."
+msgstr "Nesprávna hodnota! Skúste znovu."
+
+#: addon/appModules/winamp.py:211
+#: addon/appModules/winamp.py:238
+msgid "Error"
+msgstr "Chyba"
+
+#: addon/appModules/winamp.py:214
+msgid "Set the review time (in seconds) for use with Review End of Track command"
+msgstr "Zobrazí dialóg s nastavením času náhľadu v sekundách."
+
+#: addon/appModules/winamp.py:221
+msgid "Alternate jump forward (6 seconds by default)"
+msgstr "Skok dopredu (predvolene 6 sekúnd)."
+
+#: addon/appModules/winamp.py:228
+msgid "Alternate jump backward (6 seconds by default)"
+msgstr "Skok dozadu (predvolene 6 sekúnd)."
+
+#: addon/appModules/winamp.py:234
+msgid "Set alternate jump time"
+msgstr "Nastaviť čas skoku"
+
+#: addon/appModules/winamp.py:242
+msgid "Set alternate jump time (in seconds)"
+msgstr "Zobrazí dialóg s nastavením času skoku v sekundách."
+
+#. Add-on description
+#. TRANSLATORS: Summary for this add-on to be shown on installation and add-on informaiton.
+#: buildVars.py:13
+msgid "An extended appModule for Winamp music player"
+msgstr "Rozšírený plugin pre prehrávač Win amp"
+
+#. Add-on description
+#. Translators: Long description to be shown for this add-on on installation and add-on information
+#: buildVars.py:16
+msgid "This extended appModule extends the original Winamp appModule found in NVDA with some extra functionality."
+msgstr "Tento doplnok rozširuje predvolený aplikačný modul NVDA."
+
