@@ -172,7 +172,7 @@ class winampMainWindow(IAccessible):
 
 	@script(
 		description=_("Set playback volume to 100%"),
-		gesture="kb:f7"
+		gesture="kb:f8"
 	)
 	def script_volume100(self, gesture):
 		self.appModule.setVolume(255)
