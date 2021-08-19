@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: extendedWinamp 1.2-dev\n"
 "Report-Msgid-Bugs-To: nvda-translations@groups.io\n"
 "POT-Creation-Date: 2021-08-08 23:57-0700\n"
-"PO-Revision-Date: 2021-08-09 00:04-0700\n"
+"PO-Revision-Date: 2021-08-14 17:41+0330\n"
 "Last-Translator: Mohammadreza Rashad <mohammadreza5712@gmail.com>\n"
 "Language-Team: NVDA Translation team <nvda-translations@groups.io>\n"
 "Language: fa\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.8.9\n"
+"X-Generator: Poedit 1.6.10\n"
 
 #: addon/appModules/winamp.py:58
 #, python-format
@@ -49,7 +49,7 @@ msgstr "%s ثانیه"
 
 #: addon/appModules/winamp.py:122
 msgid "Toggles shuffle state"
-msgstr ""
+msgstr "وضعیتِ پخشِ نامرتب را فعال یا غیرفعال میکند"
 
 #: addon/appModules/winamp.py:130 addon/appModules/winamp.py:144
 msgid "on"
@@ -61,7 +61,7 @@ msgstr "خاموش"
 
 #: addon/appModules/winamp.py:136
 msgid "Toggles repeat state"
-msgstr ""
+msgstr "وضعیتِ پخشِ تکراری را فعال یا غیرفعال میکند"
 
 #: addon/appModules/winamp.py:150
 msgid "Mute playback"
@@ -126,9 +126,11 @@ msgid "not playing"
 msgstr "پخش نمی‌شود"
 
 #: addon/appModules/winamp.py:244
-msgid "Set the review time (in seconds) for use with Review End of Track command"
+msgid ""
+"Set the review time (in seconds) for use with Review End of Track command"
 msgstr ""
-"زمانِ بازشنوی را (به ثانیه) برای استفاده در فرمانِ بازشنویِ پایانِ تِرَک تنزیم میکند."
+"زمانِ بازشنوی را (به ثانیه) برای استفاده در فرمانِ بازشنویِ پایانِ تِرَک تنزیم "
+"میکند."
 
 #: addon/appModules/winamp.py:251 addon/appModules/winamp.py:289
 msgid "Seconds:"
@@ -167,7 +169,7 @@ msgstr "تنظیمِ زمانِ عقب یا جلو رفتنِ جایگزین"
 #. to be shown on installation and add-on information.
 #: buildVars.py:23
 msgid "Extended Winamp"
-msgstr ""
+msgstr "Extended Winamp"
 
 #. Add-on description
 #. Translators: Long description to be shown for this add-on on add-on information from add-ons manager
