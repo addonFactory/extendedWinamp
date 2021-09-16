@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: 'extendedWinampAppModule' '1.0'\n"
 "Report-Msgid-Bugs-To: nvda-translations@groups.io\n"
 "POT-Creation-Date: 2021-08-08 23:58-0700\n"
-"PO-Revision-Date: 2021-08-09 00:04-0700\n"
-"Last-Translator: Bachir Benanou <ben_bach@yahoo.fr>\n"
+"PO-Revision-Date: 2021-08-24 23:35+0200\n"
+"Last-Translator: Rémy Ruiz <remyruiz@gmail.com>\n"
 "Language-Team: \n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.8.9\n"
+"X-Generator: Poedit 1.8.8\n"
 
 #: addon/appModules/winamp.py:58
 #, python-format
@@ -49,7 +49,7 @@ msgstr "%s secondes"
 
 #: addon/appModules/winamp.py:122
 msgid "Toggles shuffle state"
-msgstr ""
+msgstr "Basculer à l'état aléatoire"
 
 #: addon/appModules/winamp.py:130 addon/appModules/winamp.py:144
 msgid "on"
@@ -61,7 +61,7 @@ msgstr "désactivé"
 
 #: addon/appModules/winamp.py:136
 msgid "Toggles repeat state"
-msgstr ""
+msgstr "Basculer à l'état répétition"
 
 #: addon/appModules/winamp.py:150
 msgid "Mute playback"
@@ -169,7 +169,7 @@ msgstr "Définir le temps de saut"
 #. to be shown on installation and add-on information.
 #: buildVars.py:23
 msgid "Extended Winamp"
-msgstr ""
+msgstr "Extended Winamp"
 
 #. Add-on description
 #. Translators: Long description to be shown for this add-on on add-on information from add-ons manager
