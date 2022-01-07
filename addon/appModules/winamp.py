@@ -230,6 +230,18 @@ class winampMainWindow(IAccessible):
 			return ui.message(_("No time information."))
 		ui.message(sec2str(tm))
 
+
+	@script(
+		description=_("Speaks the percentage"),
+		gesture="kb:Control+Shift+p"
+	)
+	def script_totalTrackLength(self, gesture):
+		tm = self.appModule.getOutputTime(0) /1000
+		te = self.appModule.getOutputTime(1)
+		if tm == -1:
+			return ui.message(_("No time information."))
+		ui.message(f"{int(tm/te*100)}%")
+
 	@script(
 		description=_("Review the end of track (last 6 seconds by default)"),
 		gesture="kb:Shift+r"
