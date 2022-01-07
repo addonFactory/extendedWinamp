@@ -2,7 +2,7 @@
 
 * Authors: Hrvoje Katic, Beqa Gozalishvili and NVDA-addon-team
 * Download [stable version][1]
-* NVDA compatibility: 2020.1 to 2021.1.
+* NVDA compatibility: 2020.1 and beyond
 
 This add-on extends the original Winamp app module found in NVDA with some extra functionality.
 

@@ -5,13 +5,13 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: 'extendedWinampAppModule' '1.0'\n"
+"Project-Id-Version: extendedWinampAppModule 1.0\n"
 "Report-Msgid-Bugs-To: nvda-translations@groups.io\n"
-"POT-Creation-Date: 2021-08-08 23:46-0700\n"
-"PO-Revision-Date: 2021-08-08 23:46-0700\n"
-"Last-Translator: \n"
+"POT-Creation-Date: 2021-08-08 23:51-0700\n"
+"PO-Revision-Date: 2021-08-08 23:51-0700\n"
+"Last-Translator: Robert Hänggi <aarjay.robert@gmail.com>\n"
 "Language-Team: \n"
-"Language: ko\n"
+"Language: de_CH\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -20,32 +20,32 @@ msgstr ""
 #: addon/appModules/winamp.py:58
 #, python-format
 msgid "%d hour, "
-msgstr "%d 시간 "
+msgstr "%d Stunde, "
 
 #: addon/appModules/winamp.py:60
 #, python-format
 msgid "%d hours, "
-msgstr "%d 시간 "
+msgstr "%d Stunden, "
 
 #: addon/appModules/winamp.py:62
 #, python-format
 msgid "%d minute, "
-msgstr "%d 분 "
+msgstr "%d Minute, "
 
 #: addon/appModules/winamp.py:64
 #, python-format
 msgid "%d minutes, "
-msgstr "%d 분 "
+msgstr "%d Minuten, "
 
 #: addon/appModules/winamp.py:66
 #, python-format
 msgid "%s second"
-msgstr "%s 초"
+msgstr "%s Sekunde"
 
 #: addon/appModules/winamp.py:68
 #, python-format
 msgid "%s seconds"
-msgstr "%s 초"
+msgstr "%s Sekunden"
 
 #: addon/appModules/winamp.py:122
 msgid "Toggles shuffle state"
@@ -53,11 +53,11 @@ msgstr ""
 
 #: addon/appModules/winamp.py:130 addon/appModules/winamp.py:144
 msgid "on"
-msgstr "켜짐"
+msgstr "An"
 
 #: addon/appModules/winamp.py:132 addon/appModules/winamp.py:146
 msgid "off"
-msgstr "꺼짐"
+msgstr "Aus"
 
 #: addon/appModules/winamp.py:136
 msgid "Toggles repeat state"
@@ -65,109 +65,113 @@ msgstr ""
 
 #: addon/appModules/winamp.py:150
 msgid "Mute playback"
-msgstr "재생중 음숙어됨"
+msgstr "Stumm schalten"
 
 #: addon/appModules/winamp.py:155
 msgid "mute"
-msgstr "음숙어됨"
+msgstr "Stumm"
 
 #: addon/appModules/winamp.py:158
 msgid "Set playback volume to 25%"
-msgstr "25%로 볼륨 조절"
+msgstr "Wiedergabelautstärke auf 25 % einstellen"
 
 #: addon/appModules/winamp.py:166
 msgid "Set playback volume to 50%"
-msgstr "50%로 볼륨 조절"
+msgstr "Wiedergabelautstärke auf 50 % einstellen"
 
 #: addon/appModules/winamp.py:174
 msgid "Set playback volume to 100%"
-msgstr "100%로 볼륨 조절"
+msgstr "Wiedergabelautstärke auf 100 % einstellen"
 
 #: addon/appModules/winamp.py:182
 msgid "Pan left"
-msgstr "왼쪽으로 재생"
+msgstr "Panorama links"
 
 #: addon/appModules/winamp.py:189
 msgid "Pan right"
-msgstr "오른쪽으로 재생"
+msgstr "Panorama rechts"
 
 #: addon/appModules/winamp.py:196
 msgid "Pan center"
-msgstr "중간"
+msgstr "Panorama zentriert"
 
 #: addon/appModules/winamp.py:201
 msgid "center"
-msgstr "중간"
+msgstr "Zentrieren"
 
 #: addon/appModules/winamp.py:204
 msgid "Speaks total track length"
-msgstr "현 트랙의 총 재생 시간을 알려줍니다."
+msgstr "Gibt die Länge des Titels aus."
 
 #: addon/appModules/winamp.py:210 addon/appModules/winamp.py:220
 #: addon/appModules/winamp.py:230
 msgid "No time information."
-msgstr "시간 정보 없음."
+msgstr "Keine Zeitinformation."
 
 #: addon/appModules/winamp.py:214
 msgid "Speaks track elapsed time"
-msgstr "현재 재생중인 트랙의 시간 위치를 알려줍니다."
+msgstr "Gibt die verstrichene Zeit des Titels aus"
 
 #: addon/appModules/winamp.py:224
 msgid "Speaks track remaining time"
-msgstr "현재 재생중인 트랙의 남은 시간을 알려줍니다."
+msgstr "Gibt die verbleibende Zeit des Titels aus"
 
 #: addon/appModules/winamp.py:234
 msgid "Review the end of track (last 6 seconds by default)"
-msgstr "현 트랙의 끝 재생 (기본으로 마지막 6초 재생)"
+msgstr ""
+"Gibt das Ende des Titels wieder (standardmässig die letzten 6 Sekunden)"
 
 #: addon/appModules/winamp.py:241 addon/appModules/winamp.py:269
 #: addon/appModules/winamp.py:279
 msgid "not playing"
-msgstr "재생 않함"
+msgstr "Es wird gerade nichts abgespielt."
 
 #: addon/appModules/winamp.py:244
 msgid ""
 "Set the review time (in seconds) for use with Review End of Track command"
-msgstr "현 트랙의 끝부분을 몇초동안 재생할지 설정합니다."
+msgstr ""
+"Geben Sie die Zeit in Sekunden ein, die beim Wiedergeben des Titelendes "
+"benutzt werden soll."
 
 #: addon/appModules/winamp.py:251 addon/appModules/winamp.py:289
 msgid "Seconds:"
-msgstr "초:"
+msgstr "Sekunden:"
 
 #: addon/appModules/winamp.py:251
 msgid "Set review time"
-msgstr "트랙 끝부분 재생 시간 설정"
+msgstr "Wiedergabezeit einstellen"
 
 #: addon/appModules/winamp.py:257 addon/appModules/winamp.py:295
 msgid "Bad value entered! Please try again."
-msgstr "오타 발견. 다시 입력해 주세요."
+msgstr "Ungültiger Wert eingegeben! Bitte versuchen Sie es noch einmal."
 
 #: addon/appModules/winamp.py:257 addon/appModules/winamp.py:295
 msgid "Error"
-msgstr "오류"
+msgstr "Fehler"
 
 #: addon/appModules/winamp.py:262
 msgid "Alternate jump forward (6 seconds by default)"
-msgstr "빨리감기 시간 설정 (기본으로 6초)"
+msgstr "Altenativer Vorlauf (standardmässig 6 Sekunden)"
 
 #: addon/appModules/winamp.py:272
 msgid "Alternate jump backward (6 seconds by default)"
-msgstr "되감기 시간 설정 (기본으로 6초)"
+msgstr "Alternativer Rücklauf (standardmässig 6 Sekunden)"
 
 #: addon/appModules/winamp.py:282
 msgid "Set alternate jump time (in seconds)"
-msgstr "빨리감기/되감기 시간 (초)"
+msgstr ""
+"Geben Sie die Zeitspanne in Sekunden für den alternativen Vor-/Rücklauf ein."
 
 #: addon/appModules/winamp.py:289
 msgid "Set alternate jump time"
-msgstr "빨리감기/되감기 시간 설정"
+msgstr "Zeit für alternativen Vor-/Rücklauf einstellen"
 
 #. Add-on summary, usually the user visible name of the addon.
 #. Translators: Summary for this add-on
 #. to be shown on installation and add-on information.
 #: buildVars.py:23
 msgid "Extended Winamp"
-msgstr "Extended Winamp"
+msgstr ""
 
 #. Add-on description
 #. Translators: Long description to be shown for this add-on on add-on information from add-ons manager
@@ -176,5 +180,5 @@ msgid ""
 "This extended appModule extends the original Winamp appModule found in NVDA "
 "with some extra functionality."
 msgstr ""
-"이 플러그인은 NvDA에서 제공하는 Winamp 플러그인에 추가 기능을 더한 플러그인"
-"입니다."
+"Dieses Anwendungsmodul erweitert das Winamp-Anwendungsmodul, welches mit "
+"NVDA mitgeliefert wird, mit zusätzlichen Funktionen."
