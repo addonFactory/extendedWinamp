@@ -126,11 +126,8 @@ class winampMainWindow(IAccessible):
 		gesture.send()
 		if not isScriptWaiting():
 			api.processPendingEvents()
-			if self.appModule.getShuffle():
-				onOff = _("on")
-			else:
-				onOff = _("off")
-			ui.message(onOff)
+			state = _("on") if self.appModule.getShuffle() else _("off")
+			ui.message(state)
 
 	@script(
 		description=_("Toggles repeat state"),
@@ -140,11 +137,8 @@ class winampMainWindow(IAccessible):
 		gesture.send()
 		if not isScriptWaiting():
 			api.processPendingEvents()
-			if self.appModule.getRepeat():
-				onOff = _("on")
-			else:
-				onOff = _("off")
-			ui.message(onOff)
+			state = _("on") if self.appModule.getRepeat() else _("off")
+			ui.message(state)
 
 	@script(
 		description=_("Mute playback"),
