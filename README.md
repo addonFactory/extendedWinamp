@@ -42,4 +42,4 @@ This add-on extends the original Winamp app module found in NVDA with some extra
 
 * Initial Release
 
-[1]: https://addons.nvda-project.org/files/get.php?file=ew
+[1]: https://addons.nvda-project.org/files/get.php?file=extendedWinamp
